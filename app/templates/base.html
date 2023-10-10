@@ -21,7 +21,7 @@
             }
         </style>
 
-        {%block styles %} {%endblock%}
+        {% block styles %} {% endblock %}
 
         <!-- Page title -->
         {% if title %}
@@ -32,34 +32,11 @@
     </head>
 
     <body>
-        <!-- Navbar -->
-        <nav>
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ urlFor('home') }}">Deti@Merch</a>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ urlFor('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ urlFor('products') }}">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ urlFor('cart') }}">Cart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ urlFor('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ urlFor('register') }}">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
         
-        {%block container %} 
+        {% block container %} 
         
-        {%endblock%}
+        {% endblock %}
 
         
         <!-- Bootstrap JS -->
@@ -69,6 +46,6 @@
             crossorigin="anonymous"
         ></script>
 
-        {%block scripts %} {%endblock%}
+        {% block scripts %} {% endblock %}
     </body>
 </html>

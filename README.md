@@ -40,13 +40,13 @@ pip install -r requirements.txt
 4. Run the application:
 
 ```bash
-python3 app.py
+python3 app/app.py
 ```
 
 or for the secure application:
 
 ```bash
-python3 app_sec.py
+python3 app_sec/app.py
 ```
 
 5. Access the website:
