@@ -18,7 +18,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS products
 # Create a table for customers
 c.execute('''CREATE TABLE IF NOT EXISTS customers
              (id INTEGER PRIMARY KEY,
-              name TEXT,
+              name TEXT NOT NULL,
               email TEXT)''')
 
 # Create a table for user login information
@@ -55,7 +55,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS reviews
               rating INTEGER,
               review TEXT,
               FOREIGN KEY (product_id) REFERENCES products(id),
-              FOREIGN KEY (customer_id) REFERENCES customers(id))''')
+              FOREIGN KEY (customer_id) REFERENCES customers(name))''')
 
 
 # Save changes and close the connection
