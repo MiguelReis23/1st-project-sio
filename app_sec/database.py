@@ -7,21 +7,30 @@ conn = sqlite3.connect('online_shop.db')
 c = conn.cursor()
 
 # Create a table for products
-c.execute('''CREATE TABLE products
+c.execute('''CREATE TABLE IF NOT EXISTS products
              (id INTEGER PRIMARY KEY,
               name TEXT,
               description TEXT,
+              category TEXT,
               price REAL,
               stock INTEGER)''')
 
 # Create a table for customers
-c.execute('''CREATE TABLE customers
+c.execute('''CREATE TABLE IF NOT EXISTS customers
              (id INTEGER PRIMARY KEY,
               name TEXT,
               email TEXT)''')
 
+# Create a table for user login information
+c.execute('''CREATE TABLE IF NOT EXISTS users
+             (id INTEGER PRIMARY KEY,
+              username TEXT,
+              password TEXT,
+              permission TEXT,
+              FOREIGN KEY (username) REFERENCES customers(name))''')
+
 # Create a table for orders
-c.execute('''CREATE TABLE orders
+c.execute('''CREATE TABLE IF NOT EXISTS orders
              (id INTEGER PRIMARY KEY,
               customer_id INTEGER,
               product_id INTEGER,
@@ -29,12 +38,25 @@ c.execute('''CREATE TABLE orders
               FOREIGN KEY (customer_id) REFERENCES customers(id),
               FOREIGN KEY (product_id) REFERENCES products(id))''')
 
-# Create a table for user login information
-c.execute('''CREATE TABLE users
+# Create a table for payments
+c.execute('''CREATE TABLE IF NOT EXISTS payments
              (id INTEGER PRIMARY KEY,
-              username TEXT,
-              password TEXT,
-              FOREIGN KEY (username) REFERENCES customers(name))''')
+              customer_id INTEGER,
+              order_id INTEGER,
+              amount REAL,
+              FOREIGN KEY (customer_id) REFERENCES customers(id),
+              FOREIGN KEY (order_id) REFERENCES orders(id))''')
+
+# Create a table for reviews
+c.execute('''CREATE TABLE IF NOT EXISTS reviews
+             (id INTEGER PRIMARY KEY,
+              product_id INTEGER,
+              customer_id INTEGER,
+              rating INTEGER,
+              review TEXT,
+              FOREIGN KEY (product_id) REFERENCES products(id),
+              FOREIGN KEY (customer_id) REFERENCES customers(id))''')
+
 
 # Save changes and close the connection
 conn.commit()
