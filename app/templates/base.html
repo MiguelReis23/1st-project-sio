@@ -13,13 +13,8 @@
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
             crossorigin="anonymous"
         />
-        <link rel="icon" type="image/x-icon" href="" />
-        <style>
-            body {
-                background-color: #292929;
-                color: #fff;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="icon"  href="{{url_for('static',filename='assets/favicon.png') }}" />
 
         {% block styles %} {% endblock %}
 
@@ -32,12 +27,15 @@
     </head>
 
     <body>
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
-        
-        {% block container %} 
-        
+        <!-- Load Navbar -->
+        {% block navbar %} 
+        {%include 'navbar.html'%}
         {% endblock %}
 
+
+        <!-- Load content -->
+        {% block container %} 
+        {% endblock %}
         
         <!-- Bootstrap JS -->
         <script
