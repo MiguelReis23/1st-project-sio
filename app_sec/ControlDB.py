@@ -9,12 +9,9 @@ class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    password = db.Column(db.String(50), nullable=False)
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(50), nullable=False)
+
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,7 +50,7 @@ def add_customer():
 def add_user():
     username = request.json['username']
     password = request.json['password']
-    user = User(username=username, password=password)
+    user = Customer(username=username, password=password)
     db.session.add(user)
     db.session.commit()
     return jsonify({'message': 'User added successfully'})
