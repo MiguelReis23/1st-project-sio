@@ -10,6 +10,9 @@ app = Flask(__name__)
 def index():
     return render_template('base.html',title='Test')
 
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html',title='Checkout')
 
 if __name__ == '__main__':
     app.run(port=8080)
