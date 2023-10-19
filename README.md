@@ -39,16 +39,20 @@ pip install -r requirements.txt
 
 4. Run the application:
 
+If you want to run the insecure application:
+
 ```bash
-python3 app/app.py
+./run.sh -a app -p <PORT>
 ```
+
 
 or for the secure application:
 
 ```bash
-python3 app_sec/app.py
+./run.sh -a app_sec -p <PORT>
+```
 ```
 
 5. Access the website:
 
-&emsp;&emsp;http://127.0.0.1:8080/
+&emsp;&emsp;http://127.0.0.1:<PORT>
