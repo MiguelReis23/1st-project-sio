@@ -12,4 +12,18 @@
 <body>
 <!-- Pagina login -->
 <h1>LOGIN PAGE</h1>
+
+<form action="/login" method="post">
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input id= "username" type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+        <label for="NotRegistered">Not Registered?</label>
+        <a href="/register">Register</a>
+    </div>
+
 {% endblock %}

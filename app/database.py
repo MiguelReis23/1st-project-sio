@@ -1,18 +1,45 @@
+from flask import Blueprint,jsonify
 from app import db
 from app.models import User
 
+database = Blueprint('database', __name__)
 
-def create_dummy_data():
-    # Delete all existing users
-    User.query.delete()
+@database.route('/generate', methods=['GET'])
+def create_db():
+    db.create_all()
+    return jsonify({'message': 'Database created successfully!'}), 200
 
-    # Generate new users
-    user1 = User(username='user1', email='user1@example.com', password='password1')
-    user2 = User(username='user2', email='user2@example.com', password='password2')
-    user3 = User(username='user3', email='user3@example.com', password='password3')
-
-    # Add users to the database
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.add(user3)
+@database.route('/generate/users', methods=['GET'])
+def create_users():
+    db.session.execute('DELETE FROM user WHERE isAdmin = False')
     db.session.commit()
+    users = [{
+        'username': 'user1',
+        'email': 'user1@ua.pt',
+        'password': 'password1',
+        'first_name': 'user',
+        'last_name': 'one',
+        'isAdmin': False,
+        'phone_number': '123456789',
+        'image': 'default.png',
+        'address': 'Aveiro'
+    }, {
+        'username': 'user2',
+        'email': 'user2@ua.pt',
+        'password': 'password2',
+        'first_name': 'user',
+    },{
+        'username': 'lucifer666',
+        'email': 'lucifer666@ua.pt',
+        'password': 'hell',
+        'first_name': 'Lucifer',
+        'isAdmin': True
+    }]
+    try:
+        db.session.bulk_insert_mappings(User, users)
+        db.session.commit()
+        return jsonify({'message': 'Users created successfully!'})
+    except Exception as e:
+        print(e)
+        return jsonify({'message': 'Error creating users!'})
+

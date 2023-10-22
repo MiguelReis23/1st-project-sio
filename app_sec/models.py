@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
     first_name = db.Column(db.String(100),default=username)
-    last_name = db.Column(db.String(100))
+    last_name = db.Column(db.String(100),nullable=True)
     isAdmin = db.Column(db.Boolean, default=False)
     phone_number = db.Column(db.String(20))
     image = db.Column(db.String(20), nullable=False, default='default.png')
@@ -21,7 +21,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     image = db.Column(db.String(20), nullable=False, default='default_image.png')
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-    category = db.relationship('Category', backref=db.backref('products', lazy=True))
+    category = db.relationship('Category', backref=db.backref('product', lazy=True))
     has_stock = db.Column(db.Boolean, default=True)
 
 class Category(db.Model):

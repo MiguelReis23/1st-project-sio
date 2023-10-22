@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+{% endblock %}
+
+<!-- Load Navbar -->
+{% include 'navbar.html' %}
+
+
+{% block content %}
+<body>
+<!-- Pagina login -->
+<h1>REGISTER PAGE</h1>
+<form action="/register" method="post">
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input id= "username" type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="mail"><b>E-mail</b></label>
+        <input id="email" type="email" placeholder="Enter E-mail" name="email" required>
+        <br>
+
+        <label for="psw"><b> Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <label for="psw"><b>Confirm Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Register</button>
+        <label for="NotRegistered">Already Registered?</label>
+        <a href="/login">Login</a>
+    </div>
+
+{% endblock %}
+

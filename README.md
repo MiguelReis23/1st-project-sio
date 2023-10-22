@@ -51,8 +51,10 @@ or for the secure application:
 ```bash
 ./run.sh -a app_sec -p <PORT>
 ```
-```
+
 
 5. Access the website:
 
-&emsp;&emsp;http://127.0.0.1:<PORT>
+```bash
+http://127.0.0.1:<PORT>
+```
