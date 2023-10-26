@@ -44,6 +44,12 @@ def create_app():
     from .profile import prof as profile_blueprint
     app.register_blueprint(profile_blueprint)
 
+    from.cart import crt as cart_blueprint
+    app.register_blueprint(cart_blueprint)
+
+    from .favorites import fvt as favorites_blueprint
+    app.register_blueprint(favorites_blueprint)
+
 
     return app
 
