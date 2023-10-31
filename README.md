@@ -27,9 +27,9 @@ python3 -m venv venv
 ```bash
 source venv/bin/activate
 ```
-or (Windows)
+or (Windows):
 ```bash
-.\venv\Scripts\activate.bat
+.\venv\Scripts\activate.ps1
 ```
 
 3. Install the requirements:
@@ -39,20 +39,24 @@ pip install -r requirements.txt
 
 4. Run the application:
 
-If you want to run the insecure application:
 
 ```bash
-./run.sh -a app -p <PORT>
+./run.sh app <PORT>
+```
+or:
+```bash
+./run.sh app_sec <PORT>
 ```
 
-
-or for the secure application:
+&emsp;&emsp;In Windows use instead:
 
 ```bash
-./run.sh -a app_sec -p <PORT>
+.\run.bat app <PORT>
 ```
-
-
+or:
+```bash
+.\run.bat app_sec <PORT>
+```
 5. Access the website:
 
 ```bash

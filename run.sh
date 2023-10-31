@@ -1,15 +1,7 @@
 #!/bin/bash
 
-while getopts "a:p:" opt; do
-  case $opt in
-  	a) APP="$OPTARG"
-	;;
-	p) PORT=$OPTARG
-	;;
-	\?) echo "Invalid option -$OPTARG" >&2
-	;;
-  esac
-done
+APP="$1"
+PORT="$2"
 
 export FLASK_APP=$APP/__init__.py
 export FLASK_ENV=development
