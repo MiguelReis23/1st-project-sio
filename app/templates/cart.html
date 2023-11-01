@@ -1,8 +1,129 @@
-{%extends "base.html"%}
+{% extends 'base.html' %}
 
-{%block content%}
+<!-- Load Navbar -->
+{% include 'navbar.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/car.css') }}">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock %}
+
+{% block content %}
+
+
+<head>
+	<title>Cart</title>
+	<link rel="stylesheet" href="css/car.css">
+</head>
 <body>
-{%include "navbar.html"%}
-
+	<main>
+		<main>
+			<div class="page-title">Seu Carrinho</div>
+			<div class="content">
+			  <section>
+				<table>
+				  <thead>
+					<tr>
+					  <th>Produto</th>
+					  <th>Preço</th>
+					  <th>Quantidade</th>
+					  <th>Total</th>
+					  <th>-</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td>
+						<div class="product">
+						  <img src="https://picsum.photos/100/120" alt="" />
+						  <div class="info">
+							<div class="name">Nome do produto</div>
+							<div class="category">Categoria</div>
+						  </div>
+						</div>
+					  </td>
+					  <td>120€</td>
+					  <td>
+						<div class="qty">
+						  <button><i class="bx bx-minus"></i></button>
+						  <span>2</span>
+						  <button><i class="bx bx-plus"></i></button>
+						</div>
+					  </td>
+					  <td>240€</td>
+					  <td>
+						<button class="remove"><i class="bx bx-x"></i></button>
+					  </td>
+					</tr>
+					<tr>
+					  <td>
+						<div class="product">
+						  <img src="https://picsum.photos/100/120" alt="" />
+						  <div class="info">
+							<div class="name">Nome do produto</div>
+							<div class="category">Categoria</div>
+						  </div>
+						</div>
+					  </td>
+					  <td>120€</td>
+					  <td>
+						<div class="qty">
+						  <button><i class="bx bx-minus"></i></button>
+						  <span>2</span>
+						  <button><i class="bx bx-plus"></i></button>
+						</div>
+					  </td>
+					  <td>240€</td>
+					  <td>
+						<button class="remove"><i class="bx bx-x"></i></button>
+					  </td>
+					</tr>
+					<tr>
+					  <td>
+						<div class="product">
+						  <img src="https://picsum.photos/100/120" alt="" />
+						  <div class="info">
+							<div class="name">Nome do produto</div>
+							<div class="category">Categoria</div>
+						  </div>
+						</div>
+					  </td>
+					  <td>120€</td>
+					  <td>
+						<div class="qty">
+						  <button><i class="bx bx-minus"></i></button>
+						  <span>2</span>
+						  <button><i class="bx bx-plus"></i></button>
+						</div>
+					  </td>
+					  <td>240€</td>
+					  <td>
+						<button class="remove"><i class="bx bx-x"></i></button>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+			  </section>
+			  <aside>
+				<div class="box">
+				  <header>Resumo da compra</header>
+				  <div class="info">
+					<div><span>Total</span><span>600€</span></div>
+					<div><span>Portes</span><span>0€</span></div>
+				  </div>
+				  <footer>
+					<span>Total</span>
+					<span>600€</span>
+				  </footer>
+				</div>
+				<button>Finalizar Compra</button>
+			  </aside>
+			</div>
+		  </main>
+		</body>
+</html>
 
 {%endblock%}
+
+
+
