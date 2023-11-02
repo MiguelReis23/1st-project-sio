@@ -9,8 +9,8 @@ body *{
 }
 
 .left-login{
-    width: 98vw;
-    height: 15vh;
+    width: 70vw;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;

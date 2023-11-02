@@ -12,7 +12,7 @@ body{
 }
 
 nav{
-    background: #0082e6;
+    background: #77ffc0;
     height: 80px;
     width: 100%;
 }
@@ -44,7 +44,7 @@ nav ul li a{
     text-transform: uppercase;
 }
 
-a.active, a.hover{
+a.active,a.hover{
     background: #1b9bff;
     transition: .5s;
 }
@@ -100,7 +100,7 @@ a.active, a.hover{
         background: none;
         color: #0082e6
     }
-    #check  checked ~ ul{    /*     #check:checked ~ ul está assim no video6:41*/
+    #check:checked ~ ul {
         left: 0;
     }
 }
