@@ -10,36 +10,27 @@
 
 {% block content %}
 <body>
-<!-- Pagina Registo -->
-
+<!-- Pagina login -->
+<h1>REGISTER PAGE</h1>
 <form action="/register" method="post">
-    <div class="main-login"></div>
-    <div class="left-login"></div>
-    <h1>O Registo é fácil e grátis!</h1>
-    <img src="{{ url_for('static',filename='css/register.svg') }}" class= "left-login-image" alt="Log in anim">
-    <div class="right-login">
-        <div class="card-login">
-            <h2>Cria já a tua conta</h2>
-        <div class="textfield">
-            <label for="uname"><b>Username</b></label>
-            <input id= "username" type="text" placeholder="Enter Username" name="username" required>
-        </div>
-        <div class="textfield">
-            <label for="mail"><b>E-mail</b></label>
-            <input id="email" type="email" placeholder="Enter E-mail" name="email" required>
-        </div>
-        <div class="textfield">
-            <label for="psw"><b> Password</b></label>
-            <input id="password" type="password" placeholder="Enter Password" name="password" required>
-        </div>
-        <div class="textfield">
-            <label for="psw"><b>Confirm Password</b></label>
-            <input id="password" type="password" placeholder="Enter Password" name="password" required>
-        </div>
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input id= "username" type="text" placeholder="Enter Username" name="username" required>
 
-        <button class="btn-login">Registar</button>
+        <label for="mail"><b>E-mail</b></label>
+        <input id="email" type="email" placeholder="Enter E-mail" name="email" required>
+        <br>
+
+        <label for="psw"><b> Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <label for="psw"><b>Confirm Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Register</button>
         <label for="NotRegistered">Already Registered?</label>
         <a href="/login">Login</a>
     </div>
 
 {% endblock %}
+
