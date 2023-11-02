@@ -3,6 +3,32 @@
 {%block content%}
 <body>
 {%include "navbar.html"%}
+<!-- Pagina de Perfil-->
 
-
+<form action="/profile" method="get">
+    <div class="main-profile"></div>
+    <div class="left-profile"></div>
+        <h1>Perfil</h1>
+    <div class="right-profile">
+        <div class="card-profile">
+            <h2>Perfil</h2>
+            <div class="textfield">
+                <label for="uname"><b>Nome</b></label>
+                <input id= "username" type="text" placeholder="Enter Username" name="username" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Email</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Palavra-passe</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Confirmar palavra-passe</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <button class="btn-profile">Guardar</button>
+        </div>
+    </div>
 {%endblock%}
