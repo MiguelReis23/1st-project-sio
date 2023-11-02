@@ -7,32 +7,23 @@
 <!-- Load Navbar -->
 {% include 'navbar.html' %}
 
+
 {% block content %}
 <body>
 <!-- Pagina login -->
-
+<h1>LOGIN PAGE</h1>
 
 <form action="/login" method="post">
-    <div class="main-login"></div>
-    <div class="left-login"></div>
-        <h1>Faça login<br>na sua conta</h1>
-    <img src="{{ url_for('static',filename='css/log_in.svg') }}" class= "left-login-image" alt="Log in anim">
-    <div class="right-login">
-        <div class="card-login">
-            <h2>Entre na sua conta</h2>
-            <div class="textfield">
-                <label for="uname"><b>Email</b></label>
-                <input id= "username" type="text" placeholder="Enter Username" name="username" required>
-            </div>
-            <div class="textfield"> 
-                <label for="psw"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Enter Password" name="password" required>
-            </div>
-            <button class="btn-login">Login</button>
-            <label for="NotRegistered">Cria já a tua conta!</label>
-            <a href="/register">Registar</a>
-        </div>
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input id= "username" type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+        <label for="NotRegistered">Not Registered?</label>
+        <a href="/register">Register</a>
     </div>
-</form>
 
 {% endblock %}
