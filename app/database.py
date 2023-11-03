@@ -6,7 +6,7 @@ from app.models import Category
 
 database = Blueprint('database', __name__)
 
-@database.route('/generate', methods=['GET'])
+
 def create_db():
     db.create_all()
     return jsonify({'message': 'Database created successfully!'}), 200
@@ -52,16 +52,20 @@ def create_products():
     products= [{
         'name': 'Coca-Cola',
         'price': 1.5,
-        'category_id': 1,},
+        'category_id': 1,
+        'stock': 20
+        },
         {
         'name': 'Pepsi',
         'price': 1.5,
         'category_id': 1,
+        'stock': 15
         },
         {
         'name': 'Fanta',
         'price': 1.5,
         'category_id': 1,
+        'stock': 10
         }]
     try:    
         db.session.bulk_insert_mappings(Product, products)
