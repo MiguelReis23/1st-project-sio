@@ -1,8 +1,43 @@
-{%extends "base.html"%}
+{% extends 'base.html' %}
+
+<!-- Load Navbar -->
+{% include 'navbar.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/favorite.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock %}
 
 {%block content%}
+
+</head>
 <body>
-{%include "navbar.html"%}
+    <header>
+        <h1>Favorites</h1>
+    </header>
+    <div class="wishlist-container">
+        <div class="wishlist-item">
+            <img src="https://picsum.photos/100/120" alt="Product 1" class="product-image">
+            <div class="product-details">
+                <h2 class="product-title">Product 1</h2>
+                <p>Categoria</p>
+                <p>Preço: 19.99€</p>
+            </div>
+            <button class="remove-button">Remove</button>
+        </div>
+
+        <div class="wishlist-item">
+            <img src="https://picsum.photos/100/120" alt="Product 2" class="product-image">
+            <div class="product-details">
+                <h2 class="product-title">Product 2</h2>
+                <p>Categoria</p>
+                <p>Preço: 29.99€</p>
+            </div>
+            <button class="remove-button">Remove</button>
+        </div>
+    </div>
+</body>
+</html>
 
 
 {%endblock%}
