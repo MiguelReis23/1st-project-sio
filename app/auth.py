@@ -23,7 +23,7 @@ def login_post():
         "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "';").fetchall()
     
     if not result:
-        print('Please check your login details and try again.')
+        flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
     
     user = User.query.filter_by(username=username).first()
@@ -53,14 +53,14 @@ def register_post():
     user = User.query.filter_by(username=username).first()
     
     if user:
-        print('Username already exists.')
+        flash('Username already exists.')
         return redirect(url_for('auth.register'))
     
     if password:
         if password == confirm_password:
             new_user = User(username=username, email=email, password=password)
         else:
-            print('Passwords do not match.')
+            flash('Passwords do not match.')
             return redirect(url_for('auth.register'))
     
 

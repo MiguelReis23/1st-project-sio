@@ -61,22 +61,3 @@ button {
     cursor: pointer;
     font-size: 16px;
 }
-
-.purchase-summary h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.purchase-summary ul {
-    list-style: none;
-    padding: 0;
-}
-
-.purchase-summary li {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.purchase-summary li:last-child {
-    font-weight: bold;
-}

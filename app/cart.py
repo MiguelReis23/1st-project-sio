@@ -14,16 +14,17 @@ crt= Blueprint('cart', __name__)
 @crt.route('/cart', methods=['GET'])
 @login_required
 def cart():
-    user=User.query.filter_by(id=current_user.id).first()
+    user=User.query.get(current_user.id)
     cart = Cart.query.filter_by(user_id=current_user.id).all()
     product_details = [ Product.query.filter_by(id=cart_item.product_id).first() for cart_item in cart ]
-
-    print("---------")
-    print(product_details)
-    print("---------")
+    CartItem = [(Product.query.get(cart_item.product_id), cart_item.quantity) for cart_item in cart]
+    total=sum([product.price*quantity for product,quantity in CartItem])
+    print("--------AA")
+    print(CartItem)
+    print("---------AAAA")
     for product in product_details:
         print(product.image)
-    return render_template('cart.html', user=user, product_details=product_details)
+    return render_template('cart.html', user=user, CartItem=CartItem,total=total)
 
 
 @crt.route('/cart/add/<int:product_id>', methods=['POST'])
@@ -33,7 +34,8 @@ def add_to_cart(product_id):
     if product:
         cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
         if cart_item:
-            flash("Item already in cart")
+            flash("Item quantity in cart increased")
+            cart_item.quantity += 1
         else:
             cart_item = Cart(user_id=current_user.id, product_id=product_id)
             db.session.add(cart_item)
@@ -42,7 +44,6 @@ def add_to_cart(product_id):
             print("---------")
         db.session.commit()
         
-
     return redirect(url_for('main.index'))
 
 
@@ -61,4 +62,20 @@ def remove_from_cart(product_id):
 
     return redirect(url_for('cart.cart'))
 
+@crt.route('/cart/update/<int:product_id>', methods=['POST'])
+@login_required
+def update_cart(product_id):
+    product=Product.query.get(product_id)
+    if product:
+        cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
+        if cart_item:
+            cart_item.quantity = request.form.get('quantity')
+            flash("item quantity updated")
+            db.session.commit()
+    
+    print("---------")
+    print(cart_item.quantity)
+    print("---------")
+
+    return redirect(url_for('cart.cart'))
 
