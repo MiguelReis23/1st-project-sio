@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import login_user, logout_user, login_required, current_user
-from .models import User, Product, Category, Cart, CartItem, Review, Wishlist
+from .models import User, Product
 main = Blueprint('main', __name__)
 
 
@@ -11,3 +11,9 @@ def index():
     products = Product.query.all()
     return render_template('index.html',user=user, products=products)
 
+
+@main.route('/' , methods=['POST'])
+@login_required
+def index_post():
+    products = Product.query.all()
+    return render_template('index.html', products=products)

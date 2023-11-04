@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.String(20))
     image = db.Column(db.String(20), nullable=False, default='default.png')
     address = db.Column(db.String(100))
-    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
 
 
 class Product(db.Model):
@@ -32,15 +31,7 @@ class Category(db.Model):
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    total_price = db.Column(db.Float, nullable=False, default=0)
-
-
-class CartItem(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    quantity = db.Column(db.Integer, nullable=False, default=1)
-
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))

@@ -16,6 +16,11 @@
 	<link rel="stylesheet" href="css/car.css">
 </head>
 <body>
+	{% for message in get_flashed_messages() %}
+		<div class="alert alert-success" role="alert">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<main>
 		<main>
 			<div class="page-title">Seu Carrinho</div>
@@ -32,75 +37,35 @@
 					</tr>
 				  </thead>
 				  <tbody>
-					<tr>
+					  {%for product in product_details%}
+					  <tr>
 					  <td>
 						<div class="product">
-						  <img src="https://picsum.photos/100/120" alt="" />
+						  <img width="200" height="200" src="{{url_for('static',filename='assets/'+ product.image)}}" alt="{{product.name}}">
 						  <div class="info">
-							<div class="name">Nome do produto</div>
-							<div class="category">Categoria</div>
+							<div class="name">{{product.name}}</div>
+							<div class="category">{{product.category.name}}</div>
 						  </div>
 						</div>
 					  </td>
-					  <td>120€</td>
+					  <td>{{product.price}}€</td>
 					  <td>
+						<form action="/cart" method="POST">
 						<div class="qty">
 						  <button><i class="bx bx-minus"></i></button>
-						  <span>2</span>
+						  <input size="2"class="quantity" value="" name="quantity">
 						  <button><i class="bx bx-plus"></i></button>
 						</div>
+						</form>
 					  </td>
-					  <td>240€</td>
+					  <td>€</td>
 					  <td>
+						<form action="/cart/remove/{{product.id}}" method="POST">
 						<button class="remove"><i class="bx bx-x"></i></button>
+						</form>
 					  </td>
 					</tr>
-					<tr>
-					  <td>
-						<div class="product">
-						  <img src="https://picsum.photos/100/120" alt="" />
-						  <div class="info">
-							<div class="name">Nome do produto</div>
-							<div class="category">Categoria</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>120€</td>
-					  <td>
-						<div class="qty">
-						  <button><i class="bx bx-minus"></i></button>
-						  <span>2</span>
-						  <button><i class="bx bx-plus"></i></button>
-						</div>
-					  </td>
-					  <td>240€</td>
-					  <td>
-						<button class="remove"><i class="bx bx-x"></i></button>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-						<div class="product">
-						  <img src="https://picsum.photos/100/120" alt="" />
-						  <div class="info">
-							<div class="name">Nome do produto</div>
-							<div class="category">Categoria</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>120€</td>
-					  <td>
-						<div class="qty">
-						  <button><i class="bx bx-minus"></i></button>
-						  <span>2</span>
-						  <button><i class="bx bx-plus"></i></button>
-						</div>
-					  </td>
-					  <td>240€</td>
-					  <td>
-						<button class="remove"><i class="bx bx-x"></i></button>
-					  </td>
-					</tr>
+					{%endfor%}
 				  </tbody>
 				</table>
 			  </section>
@@ -108,12 +73,12 @@
 				<div class="box">
 				  <header>Resumo da compra</header>
 				  <div class="info">
-					<div><span>Total</span><span>600€</span></div>
+					<div><span>Total</span><span>€</span></div>
 					<div><span>Portes</span><span>0€</span></div>
 				  </div>
 				  <footer>
 					<span>Total</span>
-					<span>600€</span>
+					<span>€</span>
 				  </footer>
 				</div>
 				<button>Finalizar Compra</button>
@@ -124,6 +89,11 @@
 </html>
 
 {%endblock%}
+
+
+{% block scripts %}
+<!-- <script src="{{ url_for('static',filename='js/cart_box.js') }}"></script> -->
+{% endblock %}
 
 
 
