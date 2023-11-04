@@ -1,28 +1,35 @@
 <DOCTYPE html>
 {%extends "base.html"%}
-
-{%block styles%}
-<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
-{%endblock%}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
 
 {%block content%}
 <body>
 {%include "navbar.html"%}
-    <div class="container">
-        <div class="profile-box">
-            <img class="profile-pic" src="{{url_for('static', filename='css/dog.png')}}">
-            <h3>Nome</h3>
-            <p>Morada</p>
-            <div class="social-media">
-                <image src="">
-                <image src="">
-                <image src="">
+<!-- Pagina de Perfil-->
+
+<form action="/profile" method="post">
+    <div class="main">
+        <div class="log">
+            <h2>Os seus dados</h2>
+            <div class="textfield">
+                <label for="uname"><b>Nome</b></label>
             </div>
-            <button type="button">Editar Perfil</button>
-            <div class="profile-bottom">
-                <p>Dados da Minha Conta</p>
+            <div class="textfield"> 
+                <label for="psw"><b>Sobrenome</b></label>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Email</b></label>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Telemóvel</b></label>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Morada</b></label>
             </div>
         </div>
+        <label for="NotRegistered">Informação errada?</label>
+        <a href="/edit_profile">Edita o teu Perfil!</a>
     </div>
+</form>
 </body>
 {%endblock%}
