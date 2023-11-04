@@ -9,6 +9,7 @@
 body {
   min-height: 100vh;
   background: #eef5fe;
+  padding-left: 5 rem;
 }
 /* Pre css */
 .flex {
@@ -60,7 +61,7 @@ body {
 #lock-icon,
 #sidebar-close {
   padding: 10px;
-  color: #ff774a;
+  color: #4070f4;
   font-size: 25px;
   cursor: pointer;
   margin-left: -4px;
@@ -120,7 +121,7 @@ body {
 }
 .link:hover {
   color: #fff;
-  background-color: #ff774a;
+  background-color: #4070f4;
 }
 .link span {
   white-space: nowrap;
@@ -193,8 +194,7 @@ body {
     left: 65%;
   }
 }
-
-/* @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .sidebar {
     left: 0;
     z-index: 1000;
@@ -202,7 +202,6 @@ body {
   .sidebar.close {
     left: -100%;
   }
-
   #sidebar-close {
     display: block;
   }
@@ -216,43 +215,5 @@ body {
   }
   #sidebar-open {
     display: block;
-  }
-} */
-
-@media screen and (max-width: 900px) {
-  .sidebar {
-    width: 65px;
-    position: center  ;
-    transition: width 0.4s ease;
-  }
-  
-  .sidebar.close {
-    width: 55px;
-  }
-
-  .menu_container {
-    display: none;
-  }
-
-  .bx bx-lock-alt{
-    display: none;
-  }
-
-  .navbar {
-    left: 0;
-    padding: 10px;
-    border-radius: 0;
-  }
-
-  #sidebar-open {
-    display: block;
-    font-size: 30px;
-    color: #333;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-
-  #sidebar-close {
-    display: none;
   }
 }

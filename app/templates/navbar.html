@@ -1,16 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/tes.css') }}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoverable Sidebar Menu HTML CSS & JavaScript</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/tes.css') }}" />
     <!-- Boxicons CSS -->
     <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <script src="{ url_for('static',filename='js/script.css') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/script.js') }}" defer></script>
   </head>
   <body>
     <nav class="sidebar locked">
       <div class="logo_items flex">
         <span class="nav_image">
-          <img src="images/logo.png" alt="logo_img" />
+          <img src="{{ url_for('static',filename='assets/detiua.png') }}" alt="logo_img" />
         </span>
-        <span class="logo_name">Merch</span>
+        <span class="logo_name">Deti@Merch</span>
         <i class="bx bx-lock-alt" id="lock-icon" title="Unlock Sidebar"></i>
         <i class="bx bx-x" id="sidebar-close"></i>
       </div>
@@ -19,62 +25,62 @@
         <div class="menu_items">
           <ul class="menu_item">
             <div class="menu_title flex">
-              <span class="title">Produtos</span>
+              <span class="title">Dashboard</span>
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="index.html" class="link flex">
+              <a href="#" class="link flex">
                 <i class="bx bx-home-alt"></i>
-                <span>Official Merch</span>
+                <span>Overview</span>
               </a>
             </li>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-grid-alt"></i>
-                <span>Quando eu</span>
+                <span>All Projects</span>
               </a>
             </li>
           </ul>
 
           <ul class="menu_item">
             <div class="menu_title flex">
-              <span class="title">Disser</span>
+              <span class="title">Editor</span>
               <span class="line"></span>
             </div>
             <li class="item">
               <a href="#" class="link flex">
-                <i class='bx bx-cart'></i>
-                <span>Chic</span>
+                <i class='bx bxs-cart-alt'></i>
+                <span>Carrinho</span>
               </a>
             </li>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-folder"></i>
-                <span>Voces dizem</span>
+                <span>Grigri</span>
               </a>
             </li>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-cloud-upload"></i>
-                <span>da Tina</span>
+                <span>Grigri</span>
               </a>
             </li>
           </ul>
-          
+
           <ul class="menu_item">
             <div class="menu_title flex">
-              <span class="title">Chico</span>
+              <span class="title">Setting</span>
               <span class="line"></span>
             </div>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-flag"></i>
-                <span>da</span>
+                <span>Grigri</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
-                <i class='bx bxs-user-detail'></i>
+              <a href="/profile.html" class="link flex">
+                <i class="bx bxs-user-detail"></i>
                 <span>Perfil</span>
               </a>
             </li>
@@ -89,25 +95,25 @@
 
         <div class="sidebar_profile flex">
           <span class="nav_image">
-            <img src="images/profile.jpg" alt="logo_img" />
+            <img src="{{ url_for('static',filename='css/dog.png') }}" alt="logo_img" />
           </span>
           <div class="data_text">
-            <span class="name">user1</span>
-            <br/>
-            <span class="email">user1@ua.pt</span>
+            <span class="name">Doguinho</span>
+            <span class="email">doguinho@ua.pt</span>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- Navbar 
+    <!-- Navbar -->
     <nav class="navbar flex">
-        <i class="bx bx-menu" id="sidebar-open"></i>
-        <input type="text" placeholder="Search..." class="search_box" />
-        <span class="nav_image">
-          <img src="images/profile.jpg" alt="logo_img" />
-        </span>
-      </nav>
-    -->
+      <i class="bx bx-menu" id="sidebar-open"></i>
+      <input type="text" placeholder="Search..." class="search_box" />
+      <span class="nav_image">
+        <img src="{{ url_for('static',filename='css/dog.png') }}" alt="logo_img" />
+      </span>
+    </nav>
+    <div class="container-fluid" style="padding-left: 5rem;">
+    </div>
   </body>
 </html>

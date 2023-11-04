@@ -8,13 +8,24 @@ body *{
     box-sizing: border-box;
 }
 
+.main-login{
+    width: 0vw;
+    height: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 20px;
+}
+
 .left-login{
-    width: 70vw;
+    margin: 20px;
+    width: 80vw;
     height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 
 .left-login >h1{
