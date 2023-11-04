@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/tes.css') }}">
     <!-- Boxicons CSS -->
     <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <script src="script.js" defer></script>
+    <script src="{ url_for('static',filename='js/script.css') }}" defer></script>
   </head>
   <body>
     <nav class="sidebar locked">
@@ -19,13 +19,13 @@
         <div class="menu_items">
           <ul class="menu_item">
             <div class="menu_title flex">
-              <span class="title">Hellis</span>
+              <span class="title">Produtos</span>
               <span class="line"></span>
             </div>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-home-alt"></i>
-                <span>Regina</span>
+                <span>Official Merch</span>
               </a>
             </li>
             <li class="item">
@@ -43,7 +43,7 @@
             </div>
             <li class="item">
               <a href="#" class="link flex">
-                <i class="bx bxs-magic-wand"></i>
+                <i class='bx bx-cart'></i>
                 <span>Chic</span>
               </a>
             </li>
@@ -60,7 +60,7 @@
               </a>
             </li>
           </ul>
-
+          
           <ul class="menu_item">
             <div class="menu_title flex">
               <span class="title">Chico</span>
@@ -74,14 +74,14 @@
             </li>
             <li class="item">
               <a href="#" class="link flex">
-                <i class="bx bx-award"></i>
-                <span>Tina</span>
+                <i class='bx bxs-user-detail'></i>
+                <span>Perfil</span>
               </a>
             </li>
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-cog"></i>
-                <span>ghaa</span>
+                <span>Definições</span>
               </a>
             </li>
           </ul>
@@ -93,7 +93,7 @@
           </span>
           <div class="data_text">
             <span class="name">user1</span>
-            <br />
+            <br/>
             <span class="email">user1@ua.pt</span>
           </div>
         </div>

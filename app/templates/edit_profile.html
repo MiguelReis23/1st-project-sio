@@ -1,6 +1,65 @@
 {%extends "base.html"%}
-{%block styles%}
-
-{%endblock%}
-{%include 'navbar.html'%}
+    
 {%block content%}
+<body>
+{%include 'navbar.html'%}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/edit_profile.css')}}">
+</head>
+    <div class="container">
+    <div class="lef-info">
+        <div class="profile-img">
+            <h1>Olá Utilizador </h1>
+            <img src="{{url_for('static', filename='css/profile.svg')}}" alt="profile">
+            <button class="btn-end_sess">Terminar Sessão</button>
+        </div>
+    </div>
+    <div class= "right-info">
+        <div class="card-info">
+            <h2>Dados da Minha Conta</h2>
+            <div class="textfield">
+                <label for="uname"><b>Nome</b></label>
+                <input id= "username" type="text" placeholder="Nome" name="nome" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Apelido</b></label>
+                <input id="password" type="text" placeholder="Apelido" name="apelido" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Email</b></label>
+                <input id="password" type="text" placeholder="Email" name="email" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Telemóvel</b></label>
+                <input id="password" type="text" placeholder="Telemóvel" name="telemovel" required>
+            </div>
+            <button class="btn-save">Guardar Alterações</button>
+        </div>
+        <div class="more-info">
+            <h2>Alterar Password</h2>
+            <div class="textfield"> 
+                <label for="psw"><b>Password Atual</b></label>
+                <input id="password" type="password" placeholder="Password Atual" name="password_atual" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Nova Password</b></label>
+                <input id="password" type="password" placeholder="Nova Password" name="password_nova" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Confirmar Nova Password</b></label>
+                <input id="password" type="password" placeholder="Confirmar Nova Password" name="password_nova" required>
+            </div>
+            <button class="btn-save">Guardar Alterações</button>
+        </div>
+        <div class="fiscal-info">
+            <h2>Moradas de Entrega e de Faturação</h2>
+            <div class="square">
+                <h3>Nome </h3>
+                <h3>Morada de Entrega</h3>
+                <h3>Num telemovel</h3>
+            </div>
+        </div> 
+    </div>
+</body>
+{% endblock %}

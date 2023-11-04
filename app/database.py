@@ -6,7 +6,7 @@ from app.models import Category
 
 database = Blueprint('database', __name__)
 
-
+@database.route('/generate', methods=['GET'])
 def create_db():
     db.create_all()
     return jsonify({'message': 'Database created successfully!'}), 200
