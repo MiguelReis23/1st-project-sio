@@ -3,6 +3,10 @@ body {
     color: #fff;
     
 }
+
+.nav-link {
+    color: grey;
+}
 .navbar {
     box-shadow: 0 2px 10px 5px #12121270;
     background-color: #121212;
