@@ -50,6 +50,9 @@ def create_app():
 
     from .favorites import fvt as favorites_blueprint
     app.register_blueprint(favorites_blueprint)
+    
+    from .payment import pay as payment_blueprint
+    app.register_blueprint(payment_blueprint)
 
 
     return app

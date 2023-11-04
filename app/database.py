@@ -50,23 +50,53 @@ def create_products():
     db.session.execute('DELETE FROM product')
     db.session.commit()
     products= [{
-        'name': 'Coca-Cola',
-        'price': 1.5,
+        'name': 'Mug',
+        'description': 'Coffee Break',
+        'price': 3,
+        'image': 'mug.png',
         'category_id': 1,
-        'stock': 20
+        'has_stock': True
+        },{
+        'name': 'Speaker',
+        'description': 'A personalized Deti Speaker',
+        'price': 20,
+        'image': 'speaker.png',
+        'category_id': 1,
+        'has_stock': True
         },
-        {
-        'name': 'Pepsi',
-        'price': 1.5,
+      {
+        'name': 'Mousepad',
+        'description': 'A personalized Deti Mousepad',
+        'price': 5,
+        'image': 'mousepad.png',
         'category_id': 1,
-        'stock': 15
+        'has_stock': False
         },
-        {
-        'name': 'Fanta',
-        'price': 1.5,
+      {
+        'name': 'Bag',
+        'description': 'A personalized Deti Bag',
+        'price': 2,
+        'image': 'bag.png',
         'category_id': 1,
-        'stock': 10
-        }]
+        'has_stock': True
+        },
+      {
+        'name': 'Sweatshirt',
+        'description': 'A personalized Deti Sweatshirt',
+        'price': 25,
+        'image': 'sweat.png',
+        'category_id': 2,
+        'has_stock': True
+        },
+      {
+        'name': 'T-Shirt',
+        'description': 'A personalized Deti T-Shirt',
+        'price': 15,
+        'image': 'tshirt.png',
+        'category_id': 2,
+        'has_stock': True
+        },  
+        ]
     try:    
         db.session.bulk_insert_mappings(Product, products)
         db.session.commit()
@@ -80,9 +110,11 @@ def create_categories():
     db.session.execute('DELETE FROM category')
     db.session.commit()
     categories = [{
-        'name': 'Bebidas',
+        'category_id': 1,
+        'name': 'Merchandising',
     }, {
-        'name': 'Comida',
+        'category_id': 2,
+        'name': 'Clothing',
     }]
     try:
         db.session.bulk_insert_mappings(Category, categories)
