@@ -11,60 +11,26 @@
 
 
 <html>
-<head>
-    <title>Deti Merch</title>
-    <link rel="stylesheet" type="text/css" href="/app/static/css/index.css">
-</head>
 <body>
     <header>
         <h1>Deti Merch</h1>
     </header>
-    <div class="product-container">
-        <div class="product">
-            <img src="/app/static/assets/caneca.png" alt="Produto 1">
-            <h2>Caneca</h2>
+    <div class="row product-container">
+        {%for product in products%}
+
+        <div class="product col-md-12">
+            <img src="{{url_for('static',filename='assets/'+ product.image)}}" alt="{{product.name}}">
+            <h2>{{product.name}}</h2>
             <p></p>
-            <p class="price">9.99$</p>
+            <p class="price">{{product.price|int}}€</p>
             <button class="add-to-cart">Adicionar ao Carrinho</button>
             <button class="add-to-favorites">&#9733; </button>
         </div>
-        <div class="product">
-            <img src="/app/static/assets/coluna.png" alt="Produto 2">
-            <h2>Coluna</h2>
-            <p class="price">19.99$</p>
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
-            <button class="add-to-favorites">&#9733; </button>
-            
-        </div>
-        <div class="product">
-            <img src="/app/static/assets/mopuse-pad.png" alt="Produto 2">
-            <h2>Mouse pad</h2>
-            <p class="price">14.99$</p>
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
-            <button class="add-to-favorites">&#9733; </button>
-        </div>
-        <div class="product">
-            <img src="/app/static/assets/saco.png" alt="Produto 2">
-            <h2>Saco</h2>
-            <p class="price">7.99$</p>
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
-            <button class="add-to-favorites">&#9733; </button>
-        </div>
-        <div class="product">
-            <img src="/app/static/assets/sweat.png" alt="Produto 2">
-            <h2>Sweat</h2>
-            <p class="price">29.99$</p>
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
-            <button class="add-to-favorites">&#9733; </button>
-        </div>
-        <div class="product">
-            <img src="/app/static/assets/tshirt.png" alt="Produto 2">
-            <h2>tshirt</h2>
-            <p class="price">17.49$</p>
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
-            <button class="add-to-favorites">&#9733; </button>
-        </div>
+        {%if loop.index % 3 == 0 and not loop.last%}
     </div>
+    <div class=" row product-container">
+        {%endif%}
+    {%endfor%}
 </body>
 </html>
 {% endblock %}

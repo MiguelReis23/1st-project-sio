@@ -22,7 +22,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     image = db.Column(db.String(20), nullable=False, default='default_image.png')
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-    category = db.relationship('Category', backref=db.backref('product', lazy=True))
+    category= db.relationship('Category', backref=db.backref('products', lazy=True))
     has_stock = db.Column(db.Boolean, default=True)
 
 class Category(db.Model):
