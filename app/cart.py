@@ -69,7 +69,12 @@ def update_cart(product_id):
     if product:
         cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
         if cart_item:
-            cart_item.quantity = request.form.get('quantity')
+            cart_item.quantity = int(request.form.get('quantity'))
+            if cart_item.quantity ==0:
+                cart_item.quantity = 1
+            elif cart_item.quantity <0:
+                cart_item.quantity = 1
+                flash("item quantity updated")
             flash("item quantity updated")
             db.session.commit()
     
@@ -78,4 +83,25 @@ def update_cart(product_id):
     print("---------")
 
     return redirect(url_for('cart.cart'))
+
+
+@crt.route('/cart/checkout', methods=['POST'])
+@login_required
+def checkout():
+    user=User.query.get(current_user.id)
+    cart = Cart.query.filter_by(user_id=current_user.id).all()
+    CartItem = [(Product.query.get(cart_item.product_id), cart_item.quantity) for cart_item in cart]
+    total=sum([product.price*quantity for product,quantity in CartItem])
+    return render_template('checkout.html', user=user,total=total)
+
+
+@crt.route('/cart/checkout/confirm', methods=['POST'])
+@login_required
+def confirm_checkout():
+    db.session.query(Cart).filter(Cart.user_id == current_user.id).delete()
+    db.session.commit()
+    flash("Order confirmed")
+    return redirect(url_for('main.index'))
+
+
 

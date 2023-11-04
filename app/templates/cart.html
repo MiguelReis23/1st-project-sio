@@ -53,7 +53,7 @@
 						<form action="/cart/update/{{product.id}}" method="POST">
 						<div class="qty">
 						  <input size="2"class="quantity" value="{{quantity}}" name="quantity">
-						  <button class="update"><i class="bx bx-check"></i></button>
+						  
 						</div>
 						</form>
 					  </td>
@@ -81,7 +81,9 @@
 					<span>€</span>
 				  </footer>
 				</div>
-				<button>Finalizar Compra</button>
+				<form action="/cart/checkout" method="POST">
+				<button >Finalizar Compra</button>
+				</form>
 			  </aside>
 			</div>
 		  </main>
