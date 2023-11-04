@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.String(20))
     image = db.Column(db.String(20), nullable=False, default='default.png')
     address = db.Column(db.String(100))
+    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
 
 
 class Product(db.Model):
@@ -31,25 +32,14 @@ class Category(db.Model):
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    total_price = db.Column(db.Float, nullable=False, default=0)
+
+
+class CartItem(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     quantity = db.Column(db.Integer, nullable=False, default=1)
-    # user = db.relationship('User', backref=db.backref('carts', lazy=True))
-    # product = db.relationship('product', backref=db.backref('carts', lazy=True))
-
-class Order(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    order_date = db.Column(db.DateTime, nullable=False)
-    total_price = db.Column(db.Float, nullable=False)
-    # user = db.relationship('User', backref=db.backref('orders', lazy=True))
-
-class OrderItem(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
-    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    quantity = db.Column(db.Integer, nullable=False, default=1)
-    # order = db.relationship('Order', backref=db.backref('order_items', lazy=True))
-    # product = db.relationship('Product', backref=db.backref('order_items', lazy=True))
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -57,12 +47,8 @@ class Review(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(1000))
-    # product = db.relationship('product', backref=db.backref('reviews', lazy=True))
-    # user = db.relationship('User', backref=db.backref('reviews', lazy=True))
 
 class Wishlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    # user = db.relationship('User', backref=db.backref('wishlists', lazy=True))
-    # product = db.relationship('product', backref=db.backref('wishlists', lazy=True))
