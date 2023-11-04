@@ -91,3 +91,13 @@ def create_categories():
     except Exception as e:
         print(e)
         return jsonify({'message': 'Error creating categories!'})
+    
+
+@database.route('/generate/all', methods=['GET'])
+def create_all():
+    create_db()
+    create_users()
+    create_categories()
+    create_products()
+    # create_cart()
+    return jsonify({'message': 'All created successfully!'})
