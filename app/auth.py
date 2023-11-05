@@ -22,11 +22,16 @@ def login_post():
     result = db.session.execute(
         "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "';").fetchall()
     
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        print('User does not exist.', 'error')
+        return redirect(url_for('auth.login'))
+
     if not result:
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
     
-    user = User.query.filter_by(username=username).first()
     login_user(user)
     return redirect(url_for('main.index'))
 
