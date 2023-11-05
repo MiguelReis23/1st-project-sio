@@ -25,17 +25,20 @@ def create_users():
         'phone_number': '123456789',
         'image': 'default.png',
         'address': 'Aveiro',
+        'failed_login_attempts': 0
     }, {
         'username': 'user2',
         'email': 'user2@ua.pt',
         'password': 'password2',
         'first_name': 'user',
+        'failed_login_attempts': 0
     },{
         'username': 'lucifer666',
         'email': 'lucifer666@ua.pt',
         'password': 'hell',
         'first_name': 'Lucifer',
         'isAdmin': True,
+        'failed_login_attempts': 0
     }]
     try:
         db.session.bulk_insert_mappings(User, users)
