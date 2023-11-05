@@ -25,7 +25,7 @@ def login_post():
     user = User.query.filter_by(username=username).first()
 
     if not user:
-        print('User does not exist.', 'error')
+        flash('User does not exist.', 'error')
         return redirect(url_for('auth.login'))
 
     if not result:
