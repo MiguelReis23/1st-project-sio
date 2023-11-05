@@ -16,7 +16,9 @@
     <input type="text" name="search" id="search" placeholder="Enter a product name...">
     <button type="submit">Search</button>
 </form>
-
+<div class="container"
+    <h2 id="search_result"></h2>
+</div>
 <div class="container mt-3">
     <div class="row">
         <!-- Product cards will be inserted here -->
@@ -25,17 +27,8 @@
 {%endblock%}
 
 
-<!-- <script>
-    function displayURL(url){
-        document.getElementById("display").innerHTML = url;
-
-    }
-</script> -->
-
-</script>
 {%block scripts%}
 <script type="text/javascript">
-    $(document).ready(function () {
         // Listen for the form submission
         $("form").submit(function (e) {
             console.log("submit");
@@ -45,14 +38,12 @@
 
             // Make an AJAX request to the Flask route
             $.ajax({
-                url: "/search/products?search=" + encodeURIComponent(search),
+                url: "/search/products?search=" + search,
                 type: "GET",
                 success: function (data) {
                     // Handle the response and generate HTML cards
                     displayProductCards(data.results);
-                    // function displayURL(url){
-                    //     document.getElementById(search).innerHTML = url;
-                    // }
+
                 },
             });
         });
@@ -60,9 +51,9 @@
         // Function to generate HTML cards from product data
         function displayProductCards(products) {
             let html = "";
+           $("#search_result").html("Search results for: " + $('#search').val());
             html += '<div class="row">';
             html += '<div class="col-12">';
-            html += '<h2>Search Results</h2>';
             html += "</div>";
             for (let i = 0; i < products.length; i++) {
                 html += '<div class="col-12 col-sm-6 col-md-4 col-lg-3">';
@@ -79,7 +70,7 @@
             // Insert the HTML into the page
             $(".row").html(html);
         }
-    });
+
 </script>
 {%endblock%}
 
