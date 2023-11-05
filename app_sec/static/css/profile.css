@@ -7,18 +7,14 @@ body{
 body *{
     box-sizing: border-box;
 }
- 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
+
 .log{
     text-align: center;
     margin: 15px;
     width: 1000px;
 }
+
 .textfield{
     width: 100%;
     display: flex;
@@ -28,29 +24,12 @@ body *{
     margin: 10px 0;
 }
 
-.textfield >input{
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    background: white;
-    color: #000000de;
-    font-size: 12pt;
-    box-shadow: 0px 10px 40px #00000056; 
-    outline: none;
-    box-sizing: border-box;
-}
-
 .textfield >label{
-    color: #ffffffde;
+    color: #f0ffffde;
     margin-bottom: 10px ;
 }
 
-.textfield >input::placeholder{
-    color: black;
-}
-
-.btn-login{
+.btn-edit{
     width: 100%;
     padding: 15px 0px;
     border: none;
@@ -59,15 +38,10 @@ body *{
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 3px;
-    color: #ffffff;
-    background: #ff6600;
+    color: #2b134b;
+    background: #ff551d;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #ac3913;
-}
-.label label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @media only screen and(max-width: 950px) {

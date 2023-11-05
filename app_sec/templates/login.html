@@ -7,9 +7,36 @@
 <!-- Load Navbar -->
 {% include 'navbar.html' %}
 
-
 {% block content %}
 <body>
+    {%for message in get_flashed_messages()%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {%endfor%}
 <!-- Pagina login -->
-<h1>LOGIN PAGE</h1>
+<form action="/login" method="post">
+    <div class="main">
+        <div class="log">
+            <h2>Entre na sua conta</h2>
+            <div class="textfield">
+                <label for="uname"><b>Email</b></label>
+                <input id= "username" type="text" placeholder="Enter Username" name="username" required>
+            </div>
+            <div class="textfield"> 
+                <label for="psw"><b>Password</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <button class="btn-login">Login</button>
+        </div>
+    </div>
+    <div class = "label">
+        <label for="NotRegistered">Cria já a tua conta!
+            <a href="/register">Registar</a>
+        </label>
+    </div>
+</form>
+</body>
+
 {% endblock %}
