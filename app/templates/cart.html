@@ -37,7 +37,7 @@
 					</tr>
 				  </thead>
 				  <tbody>
-					  {%for product in product_details%}
+					  {%for product, quantity in CartItem %}
 					  <tr>
 					  <td>
 						<div class="product">
@@ -50,15 +50,14 @@
 					  </td>
 					  <td>{{product.price}}€</td>
 					  <td>
-						<form action="/cart" method="POST">
+						<form action="/cart/update/{{product.id}}" method="POST">
 						<div class="qty">
-						  <button><i class="bx bx-minus"></i></button>
-						  <input size="2"class="quantity" value="" name="quantity">
-						  <button><i class="bx bx-plus"></i></button>
+						  <input size="2"class="quantity" value="{{quantity}}" name="quantity">
+						  <button class="update"><i class="bx bx-check"></i></button>
 						</div>
 						</form>
 					  </td>
-					  <td>€</td>
+					  <td>{{product.price*quantity}}€</td>
 					  <td>
 						<form action="/cart/remove/{{product.id}}" method="POST">
 						<button class="remove"><i class="bx bx-x"></i></button>
@@ -73,7 +72,8 @@
 				<div class="box">
 				  <header>Resumo da compra</header>
 				  <div class="info">
-					<div><span>Total</span><span>€</span></div>
+					<div><span>Total
+					</span>{{total}}€</div>
 					<div><span>Portes</span><span>0€</span></div>
 				  </div>
 				  <footer>
@@ -81,7 +81,9 @@
 					<span>€</span>
 				  </footer>
 				</div>
-				<button>Finalizar Compra</button>
+				<form action="/cart/checkout" method="POST">
+				<button >Finalizar Compra</button>
+				</form>
 			  </aside>
 			</div>
 		  </main>

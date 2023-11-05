@@ -17,7 +17,7 @@
     <div class="checkout-container">
         <div class="checkout-form">
             <h1>Checkout</h1>
-            <form>
+            <form action="/cart/checkout/confirm" method="POST">
 				<div class="form-group">
 					<label for="name">Name:</label>
 					<input type="text" id="name" name="name" required>
@@ -44,17 +44,6 @@
 				</div>
 				<button type="submit">Place Order</button>
 			</form>
-        </div>
-        <div class="purchase-summary-container">
-            <div class="purchase-summary">
-                <h2>Summary</h2>
-                <ul>
-                    <li>Product 1: $20.00</li>
-                    <li>Product 2: $30.00</li>
-                    <li>Shipping: $5.00</li>
-                    <li>Total: $55.00</li>
-                </ul>
-            </div>
         </div>
     </div>
 </body>
