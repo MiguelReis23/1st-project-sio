@@ -25,25 +25,14 @@ def login_post():
     
     user = User.query.filter_by(username=username).first()
 
-
     if not user:
         flash('User does not exist.', 'error')
         return redirect(url_for('auth.login'))
 
-    if user.failed_login_attempts >= 5:
-        time.sleep(60)
-        user.reset_failed_login_attempts()
-        db.session.commit()
-        flash('Conta suspensa, tente novamente mais tarde!', 'error')
-        return redirect(url_for('auth.login'))
-
     if not result:
-        user.increment_failed_login_attempts()
-        db.session.commit()
+        flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
     
-    user.reset_failed_login_attempts()
-    db.session.commit()
     login_user(user)
     return redirect(url_for('main.index'))
 
