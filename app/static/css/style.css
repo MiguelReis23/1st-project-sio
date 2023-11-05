@@ -1,6 +1,6 @@
 body {
     background-color: #3b3b3b;
-    color: #fff;
+    color: #ffffff;
     
 }
 
@@ -76,4 +76,22 @@ body {
 .form-control:focus {
     background-color: rgba(255, 255, 255, 0.3);
     color: #fff;
+}
+
+.botao button {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 100%;
+    letter-spacing: 1.5px;
+    background-color: transparent;
+    border: none;
+}
+
+.navbar .nav-item button {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 100%;
+    letter-spacing: 1.5px;
+    background-color: transparent;
+    border: none;
 }
