@@ -29,7 +29,7 @@ def login_post():
         flash('User does not exist.', 'error')
         return redirect(url_for('auth.login'))
 
-    if user.failed_login_attempts >= 5:
+    if user.failed_login_attempts >= 2:
         flash('Conta suspensa, tente novamente mais tarde!', 'error')
         time.sleep(60)
         user.reset_failed_login_attempts()
