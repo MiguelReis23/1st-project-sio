@@ -2,7 +2,8 @@
 
 
 {%block styles%}
-<link rel="stylesheet" href="{{url_for('static',filename='css/search.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/search.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 {%endblock%}
 
 
@@ -12,9 +13,10 @@
 {%include "navbar.html"%}
 <h1>Product Search</h1>
 <form method="GET" action="{{ url_for('search.search_products') }}">
-    <label for="search">Search for products:</label>
-    <input type="text" name="search" id="search" placeholder="Enter a product name...">
-    <button type="submit">Search</button>
+    <input type="text" name="search" id="search" placeholder="Search for products:">
+    <button class="botao1"type="submit">
+        <i class='bx bx-search'></i>Search
+    </button>
 </form>
 <div class="container"
     <h2 id="search_result"></h2>

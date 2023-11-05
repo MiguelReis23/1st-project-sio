@@ -3,6 +3,7 @@ from app_sec import db
 from app_sec.models import User
 from app_sec.models import Product
 from app_sec.models import Category
+from werkzeug.security import generate_password_hash
 
 database = Blueprint('database', __name__)
 
@@ -18,7 +19,7 @@ def create_users():
     users = [{
         'username': 'user1',
         'email': 'user1@ua.pt',
-        'password': 'password1',
+        'password': generate_password_hash('password1', method='sha256'),
         'first_name': 'user',
         'last_name': 'one',
         'isAdmin': False,
@@ -28,12 +29,12 @@ def create_users():
     }, {
         'username': 'user2',
         'email': 'user2@ua.pt',
-        'password': 'password2',
+        'password': generate_password_hash('password2', method='sha256'),
         'first_name': 'user',
     },{
         'username': 'lucifer666',
         'email': 'lucifer666@ua.pt',
-        'password': 'hell',
+        'password': generate_password_hash('hell', method='sha256'),
         'first_name': 'Lucifer',
         'isAdmin': True,
     }]

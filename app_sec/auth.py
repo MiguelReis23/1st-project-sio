@@ -1,4 +1,3 @@
-app_sec
 import time
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required, current_user
@@ -28,7 +27,7 @@ def login_post():
         return redirect(url_for('auth.login'))
 
     login_user(user)
-    return redirect(url_for('profile.profile'))
+    return redirect(url_for('main.index'))
 @auth.route('/logout', methods=['GET'])
 @login_required
 def logout():
