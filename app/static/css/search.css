@@ -1,0 +1,13 @@
+.card{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+    background-color: #000000;
+    transition: all 0.3s ease-in-out;
+}
+.img.card-img-top{
+    width: 200px;
+    height: 200px;
+}

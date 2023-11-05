@@ -51,5 +51,8 @@ def create_app():
     from .favorites import fvt as favorites_blueprint
     app.register_blueprint(favorites_blueprint)
 
+    from .search import src as search_blueprint
+    app.register_blueprint(search_blueprint)
+
     return app
 

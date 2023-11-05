@@ -33,12 +33,6 @@ class Cart(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     quantity = db.Column(db.Integer, nullable=False, default=1)
-class Review(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    rating = db.Column(db.Integer, nullable=False)
-    comment = db.Column(db.String(1000))
 
 class Wishlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
