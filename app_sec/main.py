@@ -25,6 +25,8 @@ def index_post():
 @login_required
 def product(product_id):
     product = Product.query.filter_by(id=product_id).first()
+    if not product:
+        return render_template('404.html')
     return render_template('product.html', product=product)
 
 
