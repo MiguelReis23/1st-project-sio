@@ -17,3 +17,10 @@ def index():
 def index_post():
     products = Product.query.all()
     return render_template('index.html', products=products)
+
+
+@main.route('/product/<int:product_id>', methods=['GET'])
+@login_required
+def product(product_id):
+    product = Product.query.filter_by(id=product_id).first()
+    return render_template('product.html', product=product)

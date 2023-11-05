@@ -3,6 +3,7 @@ from app import db
 from app.models import User
 from app.models import Product
 from app.models import Category
+from werkzeug.security import generate_password_hash
 
 database = Blueprint('database', __name__)
 
@@ -18,7 +19,7 @@ def create_users():
     users = [{
         'username': 'user1',
         'email': 'user1@ua.pt',
-        'password': 'password1',
+        'password':'password1', 
         'first_name': 'user',
         'last_name': 'one',
         'isAdmin': False,

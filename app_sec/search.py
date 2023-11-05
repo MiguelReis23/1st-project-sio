@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
 from flask_login import login_required, current_user    
-from .models import User, Wishlist, Product, Category
-from . import db
+from app_sec.models import User, Wishlist, Product, Category
+from app_sec import db
 from flask import jsonify
 import os
 
@@ -26,3 +26,8 @@ def search_products():
     print(results)
     return jsonify(results)
 
+@src.route('/search/products/<int:product_id>', methods=['GET'])
+@login_required
+def search_product(product_id):
+    product = Product.query.filter_by(id=product_id).first()
+    return render_template('product.html', product=product)

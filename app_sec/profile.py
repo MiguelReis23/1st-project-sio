@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
 from flask_login import login_required, current_user    
-from .models import User
-from . import db
+from app_sec.models import User
+from app_sec import db
 import os
 from werkzeug.security import generate_password_hash
 
@@ -35,34 +35,32 @@ def edit_profile():
     #     print('Please upload a .png or .jpeg image.')
     #     return redirect(url_for('profile.edit_profile', id=current_user.id))
  
-    password = request.form.get('password')
+    #password = request.form.get('password')
     user = User.query.filter_by(id=current_user.id).first()
     new_password = request.form.get('new_password')
     confirm_new_password = request.form.get('confirm_new_password')
     print("AAAAA")
-    if password == user.password:
-        if new_password == confirm_new_password:
-            user.password = new_password
-        else:
-            print('Passwords do not match.')
-            return render_template('profile.edit_profile', user=user)
     
-        if email:
-            user.email = email
-        if first_name:
-            user.first_name = first_name
-        if last_name:
-            user.last_name = last_name
-        if phone_number:
-            user.phone_number = phone_number
-        if address:
-            user.address = address
+    if new_password == confirm_new_password:
+        user.password = generate_password_hash(new_password, method='sha256')
+    else:
+        print('Passwords do not match.')
+        return render_template('profile.edit_profile', user=user)
+    
+    if email:
+        user.email = email
+    if first_name:
+        user.first_name = first_name
+    if last_name:
+        user.last_name = last_name
+    if phone_number:
+        user.phone_number = phone_number
+    if address:
+        user.address = address
         # if image:
         #     user.image = image.filename
         #     image.save(os.path.join("app/static/pictures",image.filename))
-    else:
-        print('Incorrect password.')
-        return render_template('profile.edit_profile', user=user)
+    
     
     db.session.commit()
 
