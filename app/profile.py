@@ -13,7 +13,7 @@ def profile():
     user = User.query.filter_by(id=current_user.id).first()	
     return render_template('profile.html', user=user)
 
-@prof.route('/edit_profile/')
+@prof.route('/edit_profile/', methods=['GET'])
 @login_required
 def edit_page():
     user = User.query.filter_by(id=current_user.id).first()
@@ -42,9 +42,6 @@ def edit_profile():
     print("AAAAA")
     
 
-
-        
-    return render_template('profile.edit_profile', user=user)
     
     if email:
         user.email = email
@@ -64,7 +61,7 @@ def edit_profile():
     db.session.commit()
 
     print("------------------")
-    print('User profile updated.')
+    flash('User profile updated.')
     print("------------------")
 
     return redirect(url_for('profile.profile'))
