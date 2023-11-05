@@ -30,7 +30,7 @@ def login_post():
         return redirect(url_for('auth.login'))
 
     if not result:
-        flash('Please check your login details and try again.')
+        flash('Wrong password.')
         return redirect(url_for('auth.login'))
     
     login_user(user)
