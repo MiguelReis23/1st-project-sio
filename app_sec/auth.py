@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from .models import User
 from . import db
 import time
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth  = Blueprint('auth', __name__)
 
@@ -19,29 +20,21 @@ def login_post():
     username = request.form.get('username')
     password = request.form.get('password')
     
-    result = db.session.execute(
-        "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "';").fetchall()
+
+    requested_user = User.query.filter_by(username=username).first()
+
+    if not requested_user and not check_password_hash(user.password, password):
+        requested_user.failed_login_attempts += 1
+        flash("Please check your login details and try again.")
     
-    user = User.query.filter_by(username=username).first()
-
-
-    if not user:
-        flash('User does not exist.', 'error')
-        return redirect(url_for('auth.login'))
-
-    if user.failed_login_attempts >= 2:
-        flash('Conta suspensa, tente novamente mais tarde!', 'error')
-        time.sleep(60)
-        user.reset_failed_login_attempts()
+    if requested_user.failed_login_attempts >= 2:
+        flash('Account suspended, try again later', 'error')
+        user.failed_login_attempts = 0
         db.session.commit()
+        time.sleep(10)
         return redirect(url_for('auth.login'))
 
-    if not result:
-        user.increment_failed_login_attempts()
-        db.session.commit()
-        return redirect(url_for('auth.login'))
-    
-    user.reset_failed_login_attempts()
+    requested_user.failed_login_attempts = 0
     db.session.commit()
     login_user(user)
     return redirect(url_for('main.index'))
@@ -74,7 +67,7 @@ def register_post():
     
     if password:
         if password == confirm_password:
-            new_user = User(username=username, email=email, password=password)
+            new_user = User(username=username, email=email, password=generate_password_hash(password, method='sha256'))
         else:
             flash('Passwords do not match.')
             return redirect(url_for('auth.register'))
