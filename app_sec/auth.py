@@ -20,21 +20,26 @@ def login_post():
     username = request.form.get('username')
     password = request.form.get('password')
     
+    user = User.query.filter_by(username=username).first()
 
-    requested_user = User.query.filter_by(username=username).first()
-
-    if not requested_user and not check_password_hash(user.password, password):
-        requested_user.failed_login_attempts += 1
-        flash("Please check your login details and try again.")
-    
-    if requested_user.failed_login_attempts >= 2:
-        flash('Account suspended, try again later', 'error')
-        user.failed_login_attempts = 0
-        db.session.commit()
-        time.sleep(10)
+    if not user:
+        flash('User does not exist.', 'error')
         return redirect(url_for('auth.login'))
 
-    requested_user.failed_login_attempts = 0
+    if user.failed_login_attempts >= 5:
+        time.sleep(60)
+        user.reset_failed_login_attempts()
+        db.session.commit()
+        flash('Your account is block, try angain later!', 'error')
+        return redirect(url_for('auth.login'))
+
+    if not check_password_hash(user.password, password):
+        flash('Please check your login details and try again.')
+        user.increment_failed_login_attempts()
+        db.session.commit()
+        return redirect(url_for('auth.login'))
+    
+    user.reset_failed_login_attempts()
     db.session.commit()
     login_user(user)
     return redirect(url_for('main.index'))
