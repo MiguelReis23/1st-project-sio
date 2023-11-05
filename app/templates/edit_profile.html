@@ -10,48 +10,46 @@
     {%include 'navbar.html'%}
     <div class="container">
     <div class="profile-box">
-        <div class="profile-img">
-            <h1>Olá, {{user.username}}</h1>
-            <br>
-            <button class="btn-end_sess">Terminar Sessão</button>
-        </div>
-    </div>
     <form action="/edit_profile" method="post">
     <div class= "right-info">
         <div class="card-info">
-            <h2>Dados da Minha Conta</h2>
+            <h2>Edit Your Acount Details</h2>
             <div class="textfield">
-                <label for="uname"><b>Nome</b></label>
-                <input id= "username" value="{{user.first_name}}"  type="text" placeholder="Nome" name="first_name" required>
+                <label for="uname"><b>Name</b></label>
+                <input id= "username" value="{{user.first_name}}"  type="text" placeholder="Name" name="first_name" required>
             </div>
             <div class="textfield"> 
-                <label for="psw"><b>Apelido</b></label>
-                <input id="password"value="{{user.last_name}}" type="text" placeholder="Apelido" name="last_name" required>
+                <label for="psw"><b>Last Name</b></label>
+                <input id="password"value="{{user.last_name}}" type="text" placeholder="Last Name" name="last_name" required>
             </div>
             <div class="textfield"> 
                 <label for="psw"><b>Email</b></label>
                 <input id="password" value="{{user.email}}" type="text" placeholder="Email" name="email" required>
             </div>
             <div class="textfield"> 
-                <label for="psw"><b>Telemóvel</b></label>
-                <input id="password" value="{{user.phone_number}}" type="text" placeholder="Telemóvel" name="phone_number" required>
+                <label for="psw"><b>Phone Number</b></label>
+                <input id="password" value="{{user.phone_number}}" type="text" placeholder="Phone Number" name="phone_number">
             </div>
             <div class="textfield"> 
-                <label for="psw"><b>Morada</b></label>
-                <input id="password" value="{{user.address}}" type="text" placeholder="Morada" name="address" required>
+                <label for="psw"><b>Adress</b></label>
+                <input id="password" value="{{user.address}}" type="text" placeholder="Adress" name="address">
         </div>
         <br>
         <div class="more-info">
-            <h2>Alterar Password</h2>
+            <h2>Change Your Password</h2>
             <div class="textfield"> 
-                <label for="psw"><b>Nova Password</b></label>
-                <input id="password" type="password" placeholder="Nova Password" name="new_password" required maxlength="8">
+                <label for="psw"><b>Old Password</b></label>
+                <input id="password" type="password" placeholder="Old Password" name="password" required>
             </div>
             <div class="textfield"> 
-                <label for="psw"><b>Confirmar Nova Password</b></label>
-                <input id="password" type="password" placeholder="Confirmar Nova Password" name="confirm_new_password" required maxlength="8">
+                <label for="psw"><b>New Password</b></label>
+                <input id="password" type="password" placeholder="New Password" name="new_password" required>
             </div>
-            <button class="btn-save">Guardar Alterações</button>
+            <div class="textfield"> 
+                <label for="psw"><b>Confirm New Password</b></label>
+                <input id="password" type="password" placeholder="Confirm New Password" name="confirm_new_password" required>
+            </div>
+            <button class="btn-save">Save Changes</button>
         </div>
     </div>
     </form>
