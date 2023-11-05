@@ -30,7 +30,8 @@
             <p class="price">{{product.price|int}}€</p>
             <button class="view-product">Ver Produto</button>
             <form action="/cart/add/{{product.id}}" method="POST">
-                <button class="add-to-cart">Adicionar ao Carrinho</button>
+                <button class="add-to-cart">
+                    <i class='bx bx-cart-add'></i>Adicionar ao Carrinho</button>
             </form>
             <form action="/favorites/add/{{product.id}}" method="POST">
                 <button class="add-to-favorites">&#9733; </button>
