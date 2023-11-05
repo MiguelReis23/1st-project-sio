@@ -26,3 +26,8 @@ def search_products():
     print(results)
     return jsonify(results)
 
+@src.route('/search/products/<int:product_id>', methods=['GET'])
+@login_required
+def search_product(product_id):
+    product = Product.query.filter_by(id=product_id).first()
+    return render_template('product.html', product=product)
