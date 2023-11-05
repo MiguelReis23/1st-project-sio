@@ -70,13 +70,13 @@ def update_cart(product_id):
         cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
         if cart_item:
             cart_item.quantity = int(request.form.get('quantity'))
-            if cart_item.quantity ==0:
-                cart_item.quantity = 1
-            elif cart_item.quantity <0:
-                cart_item.quantity = 1
-                flash("item quantity updated")
-            flash("item quantity updated")
-            db.session.commit()
+            # if cart_item.quantity ==0:
+            #     cart_item.quantity = 1
+            # elif cart_item.quantity <0:
+            #     cart_item.quantity = 1
+        
+        flash("item quantity updated")
+        db.session.commit()
     
     print("---------")
     print(cart_item.quantity)
