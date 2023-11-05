@@ -41,11 +41,10 @@ def edit_profile():
     confirm_new_password = request.form.get('confirm_new_password')
     print("AAAAA")
     
-    if new_password == confirm_new_password:
-        user.password = new_password
-    else:
-        print('Passwords do not match.')
-        return render_template('profile.edit_profile', user=user)
+
+
+        
+    return render_template('profile.edit_profile', user=user)
     
     if email:
         user.email = email
