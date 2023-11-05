@@ -62,3 +62,9 @@ or:
 ```bash
 http://127.0.0.1:<PORT>
 ```
+
+6. To generate the database you need to access the following link:
+
+```bash
+/generate/all
+```
