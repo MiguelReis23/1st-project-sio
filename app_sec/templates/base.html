@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link rel="icon"  href="{{url_for('static',filename='assets/favicon.png') }}" />
         <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/6c8b9a8a3f.js" crossorigin="anonymous"></script>
         {% block styles %} {% endblock %}
 
         <!-- Page title -->
@@ -38,6 +37,9 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"
         ></script>
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         {% block scripts %} {% endblock %}
     </body>
