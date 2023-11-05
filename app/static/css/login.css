@@ -27,7 +27,7 @@ body *{
     border: none;
     border-radius: 10px;
     padding: 15px;
-    background: #514869;
+    background: white;
     color: #f0ffffde;
     font-size: 12pt;
     box-shadow: 0px 10px 40px #00000056; 
@@ -41,7 +41,7 @@ body *{
 }
 
 .textfield >input::placeholder{
-    color: #f0ffff94;
+    color: black;
 }
 
 .btn-login{
@@ -54,7 +54,7 @@ body *{
     font-weight: 800;
     letter-spacing: 3px;
     color: #2b134b;
-    background: #ff551d;
+    background: #ff6600;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #ac3913;
 }
