@@ -1,3 +1,4 @@
+import time
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import User
@@ -24,16 +25,29 @@ def login_post():
     
     user = User.query.filter_by(username=username).first()
 
+
     if not user:
         flash('User does not exist.', 'error')
         return redirect(url_for('auth.login'))
 
-    if not result:
-        flash('Please check your login details and try again.')
+    if user.failed_login_attempts >= 5:
+        time.sleep(60)
+        user.reset_failed_login_attempts()
+        db.session.commit()
+        flash('Conta suspensa, tente novamente mais tarde!', 'error')
+        return redirect(url_for('main.index'))
+
+    if result:
+        user.reset_failed_login_attempts()
+        db.session.commit()
+        login_user(user)
+        return redirect(url_for('main.index'))
+    else:
+        user.increment_failed_login_attempts()
+        db.session.commit()
+        # flash('Incorrect password. Please try again.', 'error')
         return redirect(url_for('auth.login'))
     
-    login_user(user)
-    return redirect(url_for('main.index'))
 
 @auth.route('/logout', methods=['GET'])
 @login_required
@@ -74,3 +88,4 @@ def register_post():
     db.session.commit()
     
     return redirect(url_for('auth.login'))
+    
