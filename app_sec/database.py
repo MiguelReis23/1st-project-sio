@@ -1,8 +1,8 @@
 from flask import Blueprint,jsonify
-from app import db
-from app.models import User
-from app.models import Product
-from app.models import Category
+from app_sec import db
+from app_sec.models import User
+from app_sec.models import Product
+from app_sec.models import Category
 
 database = Blueprint('database', __name__)
 
@@ -24,7 +24,7 @@ def create_users():
         'isAdmin': False,
         'phone_number': '123456789',
         'image': 'default.png',
-        'address': 'Aveiro'
+        'address': 'Aveiro',
     }, {
         'username': 'user2',
         'email': 'user2@ua.pt',
@@ -35,7 +35,7 @@ def create_users():
         'email': 'lucifer666@ua.pt',
         'password': 'hell',
         'first_name': 'Lucifer',
-        'isAdmin': True
+        'isAdmin': True,
     }]
     try:
         db.session.bulk_insert_mappings(User, users)

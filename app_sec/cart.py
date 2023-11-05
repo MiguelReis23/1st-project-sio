@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
 from flask_login import login_required, current_user    
-from .models import User
-from .models import Product
-from .models import Cart
+from app_sec.models import User
+from app_sec.models import Product
+from app_sec.models import Cart
 
 
-from . import db
+from app_sec import db
 import os
 
 
@@ -70,11 +70,6 @@ def update_cart(product_id):
         cart_item = Cart.query.filter_by(user_id=current_user.id, product_id=product_id).first()
         if cart_item:
             cart_item.quantity = int(request.form.get('quantity'))
-            if cart_item.quantity ==0:
-                cart_item.quantity = 1
-            elif cart_item.quantity <0:
-                cart_item.quantity = 1
-        
         flash("item quantity updated")
         db.session.commit()
     
