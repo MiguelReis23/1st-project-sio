@@ -27,10 +27,10 @@ def login_post():
         return redirect(url_for('auth.login'))
 
     if user.failed_login_attempts >= 5:
-        time.sleep(60)
+        flash('Your account is blocked, try angain later!', 'error')
+        time.sleep(10)
         user.reset_failed_login_attempts()
         db.session.commit()
-        flash('Your account is block, try angain later!', 'error')
         return redirect(url_for('auth.login'))
 
     if not check_password_hash(user.password, password):
