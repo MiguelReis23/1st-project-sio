@@ -55,6 +55,8 @@ Como '1' é sempre igual a '1', a consulta acima retornará que o campo da passw
 
 ![](/analysis/videos/v1.gif)<br>
 
+>Na versão em .pdf consultar o vídeo v1.gif em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/videos)
+
 No excerto de código fornecido, podemos identificar a presença de uma vulnerabilidade  de SQLIna nossa API. A vulnerabilidade ocorre na seguinte linha:
 
 ```python
@@ -93,6 +95,8 @@ $("#search_result").html("Search results for: " + $('#search').val());
 A vunerabilidade foi explorada dentro da nossa app como demonstra este vídeo:
 
 ![](/analysis/videos/v2.gif)<br>
+
+>Na versão em .pdf consultar o vídeo v2.gif em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/videos)
 
 ## Correção
 De modo a evitar ataques do tipo, a solução foi implementar o seguinte código:
@@ -143,11 +147,15 @@ No primeiro video podemos observar que o utilizador colocando varias vezes a pal
 
 ![](/analysis/videos/v6.gif)<br>
 
+>Na versão em .pdf consultar o vídeo v6.gif em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/videos)
+
 ## Correção
 
 No segundo video podemos observar que após 5 tentativas mal sucedidas o sevidor bloqueia durante alguns segundos a página, protegendo assim contra ataques de brute force.
 
 ![](/analysis/videos/v5.gif)<br>
+
+>Na versão em .pdf consultar o vídeo v5.gif em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/videos)
 
 ## CWE-20
 
@@ -161,6 +169,8 @@ Como a API não faz a devida verificação do input "quantidade", esta permite a
 Um exemplo do que foi enunciadao:
 
 ![](/analysis/videos/v3.gif)<br>
+
+>Na versão em .pdf consultar o vídeo v3.gif em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/videos)
 
 O erro está presente no seguinte trecho de código:
 
@@ -264,12 +274,16 @@ A CWE-620,esta vulnerabilidade está presente quando a API permite a um utilizad
 Na app vunerável o servidor permite alterar a password do utilizador sem ser necessário confirmar a password atual, o que pode levar a um atacante mudar a password da conta sem saber a password atual.
 ![Alt text](/analysis/images/i2.png)<br>
 
+>Na versão em .pdf consultar a imagem i2.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
+
 ## Correção
 
 Na app segura o servidor não permite alterar a password sem antes colocar a password atual.
 Prevenindo assim possiveis roubos de contas.
 
 ![Alt text](/analysis/images/i3.png)<br>
+
+>Na versão em .pdf consultar a imagem i3.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
 ## CWE-756
 A CWE-756, esta vulnerabilidade refere-se à falta de uma página de error própria do servidor.<br> 
 Quando esta página não é implementada a página que é mostrada aos utilizadores é default e contém informação sensível que pode ser usada contra o servidor em questão.
@@ -280,6 +294,9 @@ Quando esta página não é implementada a página que é mostrada aos utilizado
 Caso o utilizador tente aceder a um produto que não existe a página de erro a página de erro retornada será a seguinte:
 
 ![Alt text](/analysis/images/404-.png)<br>
+
+>Na versão em .pdf consultar a imagem 404-.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
+
 A imagem anteriormente exposta permite aos atacantes receberem informações referentes à database.
 
 ## Correção
@@ -298,6 +315,8 @@ Assim a cada ocorrência de erro a página a ser mostrada será:<br>
 
 ![Alt text](/analysis/images/404.png)<br>
 
+>Na versão em .pdf consultar a imagem 404.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
+
 ## CWE-256
 
 A CWE-256, esta vunerabilidade pode ser explorada quando﻿atabase seja comprometida o atacante pode ter acesso facilmente a todas as passwords dos utilizadores.
@@ -308,11 +327,15 @@ Como é possivel observar na imagem seguinte da database da app vuneravél as pa
 
 ![Alt text](/analysis/images/database.png)<br>
 
+>Na versão em .pdf consultar a imagem database.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
+
 ## Correção
 
-Já na nossa app segura o problema foi resolvido com recurso à biblioteca werkzeug.security que permite encriptar as passwords antes de as guardar na tabela da database.
+Já na nossa app segura o problema foi resolvido com recurso à biblioteca werkzeug.security que permite cifrar as passwords antes de as guardar na tabela da database.
 
 ![Alt text](/analysis/images/database2.png)<br>
+
+>Na versão em .pdf consultar a imagem database2.png em [link](https://github.com/detiuaveiro/1st-project-group_19/tree/main/analysis/images)
 
 ## 3. Conclusão
 
