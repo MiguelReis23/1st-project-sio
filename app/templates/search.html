@@ -63,9 +63,9 @@
                 html += '<img class="card-img-top" src="static/assets/' + products[i].image + '">';
                 html += '<div class="card-body">';
                 html += '<h5 class="card-title">' + products[i].name + "</h5>";
-                html += '<p class="card-price">' + products[i].price + "€</p>";
+                html += '<p class="card-text">' + products[i].description + "</p>";
                 html += '<form action="/search/products/' + products[i].id + '" method="GET">';
-                html += '<button " class="btn view-product">View Product</a>';
+                html += '<button " class="btn btn-primary">View Product</a>';
                 html += "</form>";
                 html += "</div>";
                 html += "</div>";

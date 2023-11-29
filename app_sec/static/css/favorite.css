@@ -61,12 +61,12 @@ h1 {
 
 .product-price {
     font-weight: bold;
-    color: #f55a00;
+    color: #ff6600;
     font-size: 1.5em;
 }
 
 .remove-button {
-    background-color: #f55a00;
+    background-color: #ff6600;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -75,5 +75,5 @@ h1 {
 }
 
 .remove-button:hover {
-    background-color: #ff3300;
+    background-color: #cc5500;
 }

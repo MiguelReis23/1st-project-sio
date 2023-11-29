@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
 header {
     background-color: #333;
@@ -13,12 +17,10 @@ header {
 }
 
 .product {
-    margin:10px;
-    padding: 10px;
-    border-radius: 10px;
-    width: 320px;
+    width: 300px;
     border: 1px solid #ccc;
-    background-color: #181818;
+    padding: 10px;
+    margin: 10px;
 }
 
 .product img {
@@ -27,7 +29,7 @@ header {
 
 .price {
     font-weight: bold;
-    color: #f55a00;
+    color: #ff6600;
 }
 
 .view-product {
@@ -59,18 +61,15 @@ header {
 
 .add-to-favorites {
     background-color :transparent; 
-    color: #ffff; 
+    color: rgb(255, 255, 255); 
     border: none;
-    border-radius: 10px;
     padding: 5px 10px;
     cursor: pointer;
     margin-right: 15px;
     transition: background-color 0.3s;
 }
 .add-to-favorites:hover {
-    border-radius: 10px;
-    color: #fff;
-    background-color: #ff3300;
+    background-color: #dfc800;
 }
-
+    
 

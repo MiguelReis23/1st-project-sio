@@ -222,7 +222,7 @@ aside > .botao button {
   border: 0;
   padding: 15px 0;
   color: white;
-  background: #f55a00;
+  background: #ffa600;
   display: block;
   width: 100%;
   text-transform: uppercase;
@@ -231,5 +231,5 @@ aside > .botao button {
 }
 
 aside > .botao button:hover {
-  background: #ff3300;
+  background: #ff9100;
 }
